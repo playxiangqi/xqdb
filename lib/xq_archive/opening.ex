@@ -2,6 +2,7 @@ defmodule XQ.Archive.Opening do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @timestamps_opts [type: :utc_datetime_usec]
   schema "openings" do
     field :code, :string
     field :moves, {:array, :string}

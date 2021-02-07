@@ -7,5 +7,7 @@ defmodule XQ.ArchiveWeb.Router do
 
   scope "/api", XQ.ArchiveWeb do
     pipe_through :api
+
+    post "/ingest", IngestController, :ingest
   end
 end

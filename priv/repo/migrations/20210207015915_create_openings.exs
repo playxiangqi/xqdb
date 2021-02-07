@@ -7,7 +7,7 @@ defmodule XQ.Archive.Repo.Migrations.CreateOpenings do
       add :name, :string
       add :moves, {:array, :string}
 
-      timestamps()
+      timestamps([type: :utc_datetime_usec])
     end
 
   end

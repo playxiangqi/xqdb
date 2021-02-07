@@ -16,7 +16,7 @@ config :xq_archive, XQ.Archive.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :xq_archive, XQ.ArchiveWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 6391],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,

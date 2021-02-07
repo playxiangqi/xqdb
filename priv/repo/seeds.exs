@@ -9,3 +9,11 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias XQ.Archive.Opening
+
+XQ.Archive.Repo.insert!(%Opening{
+  code: "A01",
+  moves: [],
+  name: "Advisor Opening"
+})

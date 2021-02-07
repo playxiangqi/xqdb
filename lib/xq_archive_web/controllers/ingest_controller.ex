@@ -14,7 +14,7 @@ defmodule XQ.ArchiveWeb.IngestController do
     Repo.insert_all(
       Game,
       new_games,
-      on_conflict: {:replace_all_except, [:inserted_at]},
+      on_conflict: {:replace_all_except, [:id, :inserted_at]},
       conflict_target: [:source_id]
     )
 

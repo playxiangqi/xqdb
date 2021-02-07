@@ -1,2 +1,1 @@
-# xqdb
-Xiangqi database raw and pristine files
+# xq-tablebase — Database API server and datafiles

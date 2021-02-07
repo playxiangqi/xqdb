@@ -21,7 +21,7 @@ defmodule XQ.Archive.Repo.Migrations.CreateGames do
       add :moves, {:array, :string}
       add :opening_id, references(:openings, on_delete: :nothing)
 
-      timestamps([type: :utc_datetime_usec])
+      timestamps(type: :utc_datetime_usec)
     end
 
     create index(:games, [:opening_id])

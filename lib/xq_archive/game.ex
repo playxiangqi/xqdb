@@ -2,7 +2,9 @@ defmodule XQ.Archive.Game do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @derive {Jason.Encoder, except: [:__meta__, :__struct__]}
+  @hidden_fields [:__meta__, :__struct__, :inserted_at, :updated_at]
+
+  @derive {Jason.Encoder, except: @hidden_fields}
   @timestamps_opts [type: :utc_datetime_usec]
   schema "games" do
     field :black_club, :string
@@ -25,6 +27,8 @@ defmodule XQ.Archive.Game do
 
     timestamps()
   end
+
+  def hidden_fields, do: @hidden_fields
 
   @doc false
   def changeset(game, attrs) do

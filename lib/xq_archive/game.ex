@@ -2,6 +2,7 @@ defmodule XQ.Archive.Game do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, except: [:__meta__, :__struct__]}
   @timestamps_opts [type: :utc_datetime_usec]
   schema "games" do
     field :black_club, :string

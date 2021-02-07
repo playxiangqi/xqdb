@@ -1,5 +1,5 @@
-defmodule XQ.TablebaseWeb.ErrorView do
-  use XQ.TablebaseWeb, :view
+defmodule XQ.ArchiveWeb.ErrorView do
+  use XQ.ArchiveWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

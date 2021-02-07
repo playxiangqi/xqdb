@@ -1,4 +1,4 @@
-defmodule XQ.Tablebase.DataCase do
+defmodule XQ.Archive.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule XQ.Tablebase.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use XQ.Tablebase.DataCase, async: true`, although
+  by setting `use XQ.Archive.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,20 +18,20 @@ defmodule XQ.Tablebase.DataCase do
 
   using do
     quote do
-      alias XQ.Tablebase.Repo
+      alias XQ.Archive.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import XQ.Tablebase.DataCase
+      import XQ.Archive.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(XQ.Tablebase.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(XQ.Archive.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(XQ.Tablebase.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(XQ.Archive.Repo, {:shared, self()})
     end
 
     :ok

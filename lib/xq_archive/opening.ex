@@ -1,4 +1,4 @@
-defmodule XQ.Tablebase.Opening do
+defmodule XQ.Archive.Opening do
   use Ecto.Schema
   import Ecto.Changeset
 

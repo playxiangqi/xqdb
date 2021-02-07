@@ -1,4 +1,4 @@
-defmodule XQ.TablebaseWeb.ErrorHelpers do
+defmodule XQ.ArchiveWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """

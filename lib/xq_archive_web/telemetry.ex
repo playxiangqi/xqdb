@@ -1,4 +1,4 @@
-defmodule XQ.TablebaseWeb.Telemetry do
+defmodule XQ.ArchiveWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,11 +31,11 @@ defmodule XQ.TablebaseWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("xq_tablebase.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("xq_tablebase.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("xq_tablebase.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("xq_tablebase.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("xq_tablebase.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("xq_archive.repo.query.total_time", unit: {:native, :millisecond}),
+      summary("xq_archive.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("xq_archive.repo.query.query_time", unit: {:native, :millisecond}),
+      summary("xq_archive.repo.query.queue_time", unit: {:native, :millisecond}),
+      summary("xq_archive.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
@@ -49,7 +49,7 @@ defmodule XQ.TablebaseWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {XQ.TablebaseWeb, :count_users, []}
+      # {XQ.ArchiveWeb, :count_users, []}
     ]
   end
 end

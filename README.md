@@ -1,1 +1,1 @@
-# xq-tablebase — Database API server and datafiles
+# xq-archive — Database API server and data archives

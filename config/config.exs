@@ -7,16 +7,16 @@
 # General application configuration
 use Mix.Config
 
-config :xq_tablebase,
-  namespace: XQ.Tablebase,
-  ecto_repos: [XQ.Tablebase.Repo]
+config :xq_archive,
+  namespace: XQ.Archive,
+  ecto_repos: [XQ.Archive.Repo]
 
 # Configures the endpoint
-config :xq_tablebase, XQ.TablebaseWeb.Endpoint,
+config :xq_archive, XQ.ArchiveWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "JfljE76P4DcG9yad8I3niRuqNqp6k2oJhb94yWInfHFk68UEQj3f50TrjwdFUCsl",
-  render_errors: [view: XQ.TablebaseWeb.ErrorView, accepts: ~w(json), layout: false],
-  pubsub_server: XQ.Tablebase.PubSub,
+  render_errors: [view: XQ.ArchiveWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: XQ.Archive.PubSub,
   live_view: [signing_salt: "xnk6twTh"]
 
 # Configures Elixir's Logger

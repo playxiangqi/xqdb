@@ -1,16 +1,16 @@
-defmodule XQ.TablebaseWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :xq_tablebase
+defmodule XQ.ArchiveWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :xq_archive
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_xq_tablebase_key",
+    key: "_xq_archive_key",
     signing_salt: "m+b/+6rx"
   ]
 
-  socket "/socket", XQ.TablebaseWeb.UserSocket,
+  socket "/socket", XQ.ArchiveWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -18,7 +18,7 @@ defmodule XQ.TablebaseWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :xq_tablebase
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :xq_archive
   end
 
   plug Plug.RequestId
@@ -32,5 +32,5 @@ defmodule XQ.TablebaseWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug XQ.TablebaseWeb.Router
+  plug XQ.ArchiveWeb.Router
 end

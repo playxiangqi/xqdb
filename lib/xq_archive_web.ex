@@ -1,12 +1,12 @@
-defmodule XQ.TablebaseWeb do
+defmodule XQ.ArchiveWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use XQ.TablebaseWeb, :controller
-      use XQ.TablebaseWeb, :view
+      use XQ.ArchiveWeb, :controller
+      use XQ.ArchiveWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,18 +19,18 @@ defmodule XQ.TablebaseWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: XQ.TablebaseWeb
+      use Phoenix.Controller, namespace: XQ.ArchiveWeb
 
       import Plug.Conn
-      alias XQ.TablebaseWeb.Router.Helpers, as: Routes
+      alias XQ.ArchiveWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/xq_tablebase_web/templates",
-        namespace: XQ.TablebaseWeb
+        root: "lib/xq_archive_web/templates",
+        namespace: XQ.ArchiveWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -61,8 +61,8 @@ defmodule XQ.TablebaseWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import XQ.TablebaseWeb.ErrorHelpers
-      alias XQ.TablebaseWeb.Router.Helpers, as: Routes
+      import XQ.ArchiveWeb.ErrorHelpers
+      alias XQ.ArchiveWeb.Router.Helpers, as: Routes
     end
   end
 

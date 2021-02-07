@@ -1,9 +1,9 @@
-defmodule XQ.Tablebase.MixProject do
+defmodule XQ.Archive.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :xq_tablebase,
+      app: :xq_archive,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule XQ.Tablebase.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {XQ.Tablebase.Application, []},
+      mod: {XQ.Archive.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

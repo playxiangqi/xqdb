@@ -11,7 +11,7 @@ database_url =
     For example: ecto://USER:PASS@HOST/DATABASE
     """
 
-config :xq_tablebase, XQ.Tablebase.Repo,
+config :xq_archive, XQ.Archive.Repo,
   # ssl: true,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
@@ -23,7 +23,7 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-config :xq_tablebase, XQ.TablebaseWeb.Endpoint,
+config :xq_archive, XQ.ArchiveWeb.Endpoint,
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
     transport_options: [socket_opts: [:inet6]]
@@ -35,7 +35,7 @@ config :xq_tablebase, XQ.TablebaseWeb.Endpoint,
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :xq_tablebase, XQ.TablebaseWeb.Endpoint, server: true
+#     config :xq_archive, XQ.ArchiveWeb.Endpoint, server: true
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.

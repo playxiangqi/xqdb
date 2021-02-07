@@ -1,4 +1,4 @@
-defmodule XQ.Tablebase.Game do
+defmodule XQ.Archive.Game do
   use Ecto.Schema
   import Ecto.Changeset
 

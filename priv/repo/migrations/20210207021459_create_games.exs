@@ -1,4 +1,4 @@
-defmodule XQ.Tablebase.Repo.Migrations.CreateGames do
+defmodule XQ.Archive.Repo.Migrations.CreateGames do
   use Ecto.Migration
 
   def change do

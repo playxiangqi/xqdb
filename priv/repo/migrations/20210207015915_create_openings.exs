@@ -1,4 +1,4 @@
-defmodule XQ.Tablebase.Repo.Migrations.CreateOpenings do
+defmodule XQ.Archive.Repo.Migrations.CreateOpenings do
   use Ecto.Migration
 
   def change do

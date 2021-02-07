@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :xq_tablebase, XQ.Tablebase.Repo,
+config :xq_archive, XQ.Archive.Repo,
   username: "postgres",
   password: "postgres",
-  database: "xq_tablebase_dev",
+  database: "xq_archive_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :xq_tablebase, XQ.Tablebase.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :xq_tablebase, XQ.TablebaseWeb.Endpoint,
+config :xq_archive, XQ.ArchiveWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,

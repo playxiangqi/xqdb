@@ -1,4 +1,4 @@
-defmodule XQ.TablebaseWeb.ConnCase do
+defmodule XQ.ArchiveWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule XQ.TablebaseWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use XQ.TablebaseWeb.ConnCase, async: true`, although
+  by setting `use XQ.ArchiveWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,20 +22,20 @@ defmodule XQ.TablebaseWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import XQ.TablebaseWeb.ConnCase
+      import XQ.ArchiveWeb.ConnCase
 
-      alias XQ.TablebaseWeb.Router.Helpers, as: Routes
+      alias XQ.ArchiveWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint XQ.TablebaseWeb.Endpoint
+      @endpoint XQ.ArchiveWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(XQ.Tablebase.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(XQ.Archive.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(XQ.Tablebase.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(XQ.Archive.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

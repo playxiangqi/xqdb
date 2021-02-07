@@ -1,4 +1,4 @@
-defmodule XQ.TablebaseWeb.ChannelCase do
+defmodule XQ.ArchiveWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule XQ.TablebaseWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use XQ.TablebaseWeb.ChannelCase, async: true`, although
+  by setting `use XQ.ArchiveWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule XQ.TablebaseWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import XQ.TablebaseWeb.ChannelCase
+      import XQ.ArchiveWeb.ChannelCase
 
       # The default endpoint for testing
-      @endpoint XQ.TablebaseWeb.Endpoint
+      @endpoint XQ.ArchiveWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(XQ.Tablebase.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(XQ.Archive.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(XQ.Tablebase.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(XQ.Archive.Repo, {:shared, self()})
     end
 
     :ok

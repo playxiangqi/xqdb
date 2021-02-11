@@ -9,6 +9,7 @@ defmodule XQ.ArchiveWeb.Router do
     pipe_through :api
 
     get "/game", GameController, :index
+    get "/openings", OpeningController, :index
     post "/ingest", IngestController, :ingest
   end
 end

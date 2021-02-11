@@ -12,8 +12,12 @@
 
 alias XQ.Archive.Opening
 
-XQ.Archive.Repo.insert!(%Opening{
-  code: "A01",
-  moves: [],
-  name: "Advisor Opening"
-})
+XQ.Archive.Repo.insert!(
+  %Opening{
+    code: "A01",
+    moves: [],
+    name: "Advisor Opening"
+  },
+  on_conflict: {:replace_all_except, [:id, :inserted_at]},
+  conflict_target: [:code]
+)

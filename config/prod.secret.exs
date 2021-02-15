@@ -12,7 +12,7 @@ database_url =
     """
 
 config :xq_archive, XQ.Archive.Repo,
-  # ssl: true,
+  ssl: true,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
@@ -35,7 +35,4 @@ config :xq_archive, XQ.ArchiveWeb.Endpoint,
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :xq_archive, XQ.ArchiveWeb.Endpoint, server: true
-#
-# Then you can assemble a release by calling `mix release`.
-# See `mix help release` for more information.
+config :xq_archive, XQ.ArchiveWeb.Endpoint, server: true

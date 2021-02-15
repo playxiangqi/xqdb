@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.4.0
+  aws-ecr: circleci/aws-ecr@6.15.3
+
+jobs:
+  deploy-docker-ecr:
+    parameters:
+      deploy-env:
+        description: Deployment tier/stage
+        type: string
+    executor: aws-cli/default
+    environment:
+      AWS_ECR_URL: ${AWS_ECR_ACCOUNT_URL}/playxiangqi/archive
+    steps:
+      - checkout
+      - aws-cli/setup
+      - setup_remote_docker
+      - aws-ecr/ecr-login
+      - run:
+          name: Build Docker Image
+          command: |
+            DATABASE_URL=$DEV_PLATFORM_DATABASE_URL make build-<< parameters.deploy-env >>
+      - run:
+          name: Deploy Docker Image
+          command: make push-<< parameters.deploy-env >>
+
+workflows:
+  deploy-dev:
+    jobs:
+      - deploy-docker-ecr:
+          name: dev-deploy-docker-ecr
+          context: AWS
+          deploy-env: dev
+          filters:
+            branches:
+              only: master

@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@1.4.0
   aws-ecr: circleci/aws-ecr@6.15.3
+  aws-ecs: circleci/aws-ecs@2.0.0
 
 jobs:
   deploy-docker-ecr:
@@ -25,12 +26,32 @@ jobs:
       - run:
           name: Deploy Docker Image
           command: make push-<< parameters.deploy-env >>
+  deploy-ecs-update:
+    parameters:
+      deploy-env:
+        description: Deployment tier/stage
+        type: string
+    executor: aws-cli/default
+    steps:
+      - aws-cli/setup
+      - aws-ecs/update-service:
+          family: dev-archive-task
+          cluster-name: dev-archive-cluster
+          service-name: dev-archive-service
+          force-new-deployment: true
 
 workflows:
   deploy-dev:
     jobs:
       - deploy-docker-ecr:
           name: dev-deploy-docker-ecr
+          context: AWS
+          deploy-env: dev
+          filters:
+            branches:
+              only: master
+      - deploy-ecs-update:
+          name: dev-deploy-ecs-update
           context: AWS
           deploy-env: dev
           filters:

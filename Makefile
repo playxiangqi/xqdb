@@ -10,8 +10,6 @@ build-dev-local:
 build-dev:
 	docker build --build-arg APP_VSN=$(APP_VSN) \
 		--build-arg MIX_ENV=prod \
-		--build-arg SECRET_KEY_BASE=${SECRET_KEY_BASE} \
-		--build-arg DATABASE_URL=${DATABASE_URL} \
 		-t ${AWS_ECR_URL}:latest .
 
 .PHONY: build-prod-local
@@ -26,8 +24,6 @@ build-prod-local:
 build-prod:
 	docker build --build-arg APP_VSN=$(APP_VSN) \
 		--build-arg MIX_ENV=prod \
-		--build-arg SECRET_KEY_BASE=${SECRET_KEY_BASE} \
-		--build-arg DATABASE_URL=${DATABASE_URL} \
 		-t ${AWS_ECR_URL}:$(APP_VSN)-$(BUILD) \
 		-t ${AWS_ECR_URL}:latest .
 

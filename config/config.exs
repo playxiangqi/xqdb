@@ -9,7 +9,8 @@ use Mix.Config
 
 config :xq_archive,
   namespace: XQ.Archive,
-  ecto_repos: [XQ.Archive.Repo]
+  ecto_repos: [XQ.Archive.Repo],
+  build: System.get_env("BUILD")
 
 # Configures the endpoint
 config :xq_archive, XQ.ArchiveWeb.Endpoint,

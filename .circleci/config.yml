@@ -17,12 +17,13 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 19.03.13
       - aws-ecr/ecr-login
       - run:
           name: Build Docker Image
           command: |
-            DATABASE_URL=$DEV_PLATFORM_DATABASE_URL make build-<< parameters.deploy-env >>
+            make docker-<< parameters.deploy-env >>
       - run:
           name: Deploy Docker Image
           command: make push-<< parameters.deploy-env >>
@@ -35,9 +36,9 @@ jobs:
     steps:
       - aws-cli/setup
       - aws-ecs/update-service:
-          family: dev-archive-task
-          cluster-name: dev-archive-cluster
-          service-name: dev-archive-service
+          family: << parameters.deploy-env >>-archive-task
+          cluster-name: << parameters.deploy-env >>-archive-cluster
+          service-name: << parameters.deploy-env >>-archive-service
           force-new-deployment: true
 
 workflows:

@@ -2,10 +2,15 @@ defmodule XQ.ArchiveWeb.HealthController do
   use XQ.ArchiveWeb, :controller
 
   def index(conn, _params) do
-    vsn = Application.spec(:xq_archive, :vsn)
+    {:ok, vsn} = :application.get_key(:xq_archive, :vsn)
 
     conn
     |> put_status(200)
-    |> json(%{healhy: true, version: vsn, node_name: node()})
+    |> json(%{
+      healthy: true,
+      version: to_string(vsn),
+      build: Application.get_env(:xq_archive, :build),
+      node_name: node()
+    })
   end
 end

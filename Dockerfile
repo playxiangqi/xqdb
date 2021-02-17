@@ -24,6 +24,8 @@ COPY mix.exs mix.lock start.sh ./
 COPY config config
 
 RUN mix do deps.get --only ${MIX_ENV}, deps.compile
+
+COPY priv priv
 RUN mix phx.digest
 
 COPY lib lib

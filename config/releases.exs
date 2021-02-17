@@ -11,6 +11,15 @@ database_url =
     For example: ecto://USER:PASS@HOST/DATABASE
     """
 
+parser_sqs_url =
+  System.get_env("PARSER_SQS_QUEUE_URL") ||
+    raise """
+    environment variable PARSER_SQS_QUEUE_URL is missing.
+    """
+
+config :xq_archive,
+  parser_sqs_url: parser_sqs_url
+
 config :xq_archive, XQ.Archive.Repo,
   ssl: true,
   url: database_url,

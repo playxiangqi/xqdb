@@ -18,8 +18,8 @@ defmodule XQ.ArchiveWeb.GameController do
       Repo.all(query)
       |> Enum.map(fn %{game: g, opening: %Opening{} = o} ->
         Map.merge(g, %{
+          opening_code: o.id,
           opening_name: o.name,
-          opening_code: o.code,
           opening_moves: o.moves
         })
         |> Map.drop(Game.hidden_fields())

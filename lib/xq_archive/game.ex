@@ -23,7 +23,7 @@ defmodule XQ.Archive.Game do
     field :source, :string, null: false
     field :source_id, :string, null: false
     field :time_control, :string
-    field :opening_id, :id
+    field :opening_id, :string, null: false
 
     timestamps()
   end
@@ -49,7 +49,8 @@ defmodule XQ.Archive.Game do
       :black_rating,
       :data,
       :move_count,
-      :moves
+      :moves,
+      :opening_id
     ])
     |> validate_required([
       :source,
@@ -67,7 +68,8 @@ defmodule XQ.Archive.Game do
       :black_rating,
       :data,
       :move_count,
-      :moves
+      :moves,
+      :opening_id
     ])
   end
 end

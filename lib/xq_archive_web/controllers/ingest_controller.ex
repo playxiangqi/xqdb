@@ -37,10 +37,8 @@ defmodule XQ.ArchiveWeb.IngestController do
            "data" => data
          } = game
        ) do
-    {:ok, date, _} = DateTime.from_iso8601(raw_date)
-
     %{
-      date: date,
+      date: DateTime.from_unix!(raw_date, :millisecond),
       event: Map.get(game, "event"),
       result: result,
       rated: Map.get(game, "rated", false),

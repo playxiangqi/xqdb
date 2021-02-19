@@ -33,14 +33,25 @@ defmodule XQ.Archive.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # Phoenix
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.1"},
+
+      # Web
+      {:plug_cowboy, "~> 2.0"},
+
+      # Database
       {:ecto_sql, "~> 3.5.4"},
       {:postgrex, ">= 0.0.0"},
+
+      # Instrumentation
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+
+      # Data Processing
+      {:broadway, "~> 0.6.2"},
+      {:gen_stage, "~> 1.1"},
+      {:jason, "~> 1.0"}
     ]
   end
 

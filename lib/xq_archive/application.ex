@@ -9,14 +9,14 @@ defmodule XQ.Archive.Application do
     children = [
       # Start the Ecto repository
       XQ.Archive.Repo,
+      # Start the Ingestion Pipeline supervisor
+      XQ.Archive.Ingester,
       # Start the Telemetry supervisor
       XQ.ArchiveWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: XQ.Archive.PubSub},
       # Start the Endpoint (http/https)
       XQ.ArchiveWeb.Endpoint
-      # Start a worker by calling: XQ.Archive.Worker.start_link(arg)
-      # {XQ.Archive.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

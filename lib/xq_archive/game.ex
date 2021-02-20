@@ -2,7 +2,7 @@ defmodule XQ.Archive.Game do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @hidden_fields [:__meta__, :__struct__, :inserted_at, :updated_at]
+  @hidden_fields [:__meta__, :__struct__, :data, :inserted_at, :updated_at]
 
   @derive {Jason.Encoder, except: @hidden_fields}
   @timestamps_opts [type: :utc_datetime_usec]

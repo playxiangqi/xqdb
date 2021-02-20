@@ -12,9 +12,12 @@ defmodule XQ.ArchiveWeb.Router do
   scope "/api", XQ.ArchiveWeb do
     pipe_through :api
 
-    get "/health", HealthController, :index
     get "/game", GameController, :index
+    get "/game/latest", GameController, :show_latest
+    get "/game/random", GameController, :show_random
+
     get "/openings", OpeningController, :index
+
     post "/ingest", IngestController, :ingest
   end
 end

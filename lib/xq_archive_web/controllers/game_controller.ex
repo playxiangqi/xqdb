@@ -55,32 +55,6 @@ defmodule XQ.ArchiveWeb.GameController do
     json(conn, specific_game)
   end
 
-  def show_latest(conn, _params) do
-    query =
-      from g in Game,
-        join: o in Opening,
-        on: g.opening_id == o.id,
-        order_by: [desc: g.date],
-        limit: 1,
-        select: %{game: g, opening: o}
-
-    latest_game = prepare_response(Repo.one!(query))
-    json(conn, latest_game)
-  end
-
-  def show_random(conn, _params) do
-    query =
-      from g in Game,
-        join: o in Opening,
-        on: g.opening_id == o.id,
-        order_by: fragment("RANDOM()"),
-        limit: 1,
-        select: %{game: g, opening: o}
-
-    random_game = prepare_response(Repo.one!(query))
-    json(conn, random_game)
-  end
-
   defp validate_query_params(%Plug.Conn{params: req_params} = conn, valid_params) do
     default_params = %{
       "limit" => 25

@@ -15,6 +15,7 @@ defmodule XQ.ArchiveWeb.Router do
     get "/game", GameController, :index
     get "/game/latest", GameController, :show_latest
     get "/game/random", GameController, :show_random
+    get "/game/:id", GameController, :show
 
     get "/openings", OpeningController, :index
 

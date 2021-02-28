@@ -8,7 +8,7 @@ defmodule XQ.Archive.Ingester.Core do
           "source" => source,
           "source_id" => source_id,
           "opening_id" => opening_id,
-          "move_count" => move_count,
+          "turn_count" => turn_count,
           "moves" => moves,
           "data" => data
         } = game
@@ -28,7 +28,7 @@ defmodule XQ.Archive.Ingester.Core do
       source_id: source_id,
       time_control: Map.get(game, "time_control"),
       opening_id: opening_id,
-      move_count: move_count,
+      turn_count: turn_count,
       moves: moves,
       data: data
     }

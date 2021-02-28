@@ -13,7 +13,7 @@ defmodule XQ.Archive.Game do
     field :data, :map, null: false
     field :date, :utc_datetime, null: false
     field :event, :string
-    field :move_count, :integer, null: false
+    field :turn_count, :integer, null: false
     field :moves, {:array, :string}, null: false
     field :rated, :boolean, default: false
     field :red_club, :string
@@ -48,7 +48,7 @@ defmodule XQ.Archive.Game do
       :black_player,
       :black_rating,
       :data,
-      :move_count,
+      :turn_count,
       :moves,
       :opening_id
     ])
@@ -67,7 +67,7 @@ defmodule XQ.Archive.Game do
       :black_player,
       :black_rating,
       :data,
-      :move_count,
+      :turn_count,
       :moves,
       :opening_id
     ])

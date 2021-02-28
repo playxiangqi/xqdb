@@ -17,7 +17,7 @@ defmodule XQ.Archive.Repo.Migrations.CreateGames do
       add :black_player, :string, null: false
       add :black_rating, :integer
       add :data, :map, null: false
-      add :move_count, :integer
+      add :turn_count, :integer
       add :moves, {:array, :string}
       add :opening_id, references(:openings, type: :string, on_delete: :nothing)
 

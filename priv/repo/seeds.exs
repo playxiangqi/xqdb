@@ -73,7 +73,7 @@ games =
         red_player: "Li XueSong",
         black_club: "BeiJing",
         black_player: "Sun Bo",
-        move_count: 59,
+        turn_count: 59,
         moves: [
           "A4+5",
           "p7+1",

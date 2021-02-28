@@ -8,7 +8,7 @@ defmodule XQ.ArchiveWeb.GameController do
   alias XQ.Archive.{Game, Opening, Repo}
 
   plug :validate_query_params,
-       ~w(red_player black_player opening_id result source limit)
+       ~w(red_player black_player opening_id result source limit min_moves max_moves)
        when action in [:index]
 
   def index(conn, _params) do
@@ -75,6 +75,15 @@ defmodule XQ.ArchiveWeb.GameController do
         "limit" ->
           from p in q,
             limit: ^v
+
+        # Note: Could easily precompute both move_count and turn_count during ETL
+        "min_moves" ->
+          from p in q,
+            where: field(p, :turn_count) >= ^v * 2
+
+        "max_moves" ->
+          from p in q,
+            where: field(p, :turn_count) <= ^v * 2
 
         _ ->
           from p in q,
